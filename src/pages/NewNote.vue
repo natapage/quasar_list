@@ -14,14 +14,11 @@ const note = reactive({
 });
 
 const submit = () => {
-  console.log(notes.value);
-
   notes.value.unshift({
     ...note,
     createdAt: Date.now(),
     updatedAt: Date.now(),
   });
-  console.log(notes.value);
   router.push("/");
 
   note.title = "";

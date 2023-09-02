@@ -5,12 +5,14 @@
   "productName": "Quasar App",
   "author": "natapage <624832@gmail.com>",
   "private": true,
+  "homepage": "https://natapage.github.io/quasar_list/",
   "scripts": {
     "lint": "eslint --ext .js,.vue ./",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
-    "build": "quasar build"
+    "build": "quasar build",
+    "deploy": "quasar build && gh-pages -d dist/spa"
   },
   "dependencies": {
     "@quasar/extras": "^1.16.4",
