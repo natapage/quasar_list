@@ -1,7 +1,7 @@
 <script setup>
 import ContainerItem from "../components/ContainerItem.vue";
 import NoteCard from "../components/NoteCard.vue";
-import { useLocalNotes } from "src/helper";
+import { useLocalNotes } from "../composables/useLocalStorage";
 import { useRouter } from "vue-router";
 const notes = useLocalNotes();
 const router = useRouter();
@@ -17,7 +17,7 @@ const router = useRouter();
         </div>
       </div>
 
-      <NoteCard
+      <note-card
         v-for="({ title, description }, idx) in notes"
         :key="idx"
         :title="title"

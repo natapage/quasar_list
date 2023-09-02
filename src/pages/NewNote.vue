@@ -1,8 +1,8 @@
 <script setup>
-import { useLocalNotes } from "../helper.js";
-import { useRouter } from "vue-router";
-import { reactive } from "vue";
 import ContainerItem from "../components/ContainerItem.vue";
+import { useLocalNotes } from "../composables/useLocalStorage";
+import { reactive } from "vue";
+import { useRouter } from "vue-router";
 
 const router = useRouter();
 const notes = useLocalNotes();

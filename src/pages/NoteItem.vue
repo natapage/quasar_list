@@ -1,7 +1,7 @@
 <script setup>
 import ContainerItem from "../components/ContainerItem.vue";
 import { useRoute, useRouter } from "vue-router";
-import { useLocalNotes } from "../helper";
+import { useLocalNotes } from "../composables/useLocalStorage";
 import { ref, computed } from "vue";
 
 const notes = useLocalNotes();
@@ -20,7 +20,7 @@ const editing = ref(false);
 
 <template>
   <q-page padding>
-    <ContainerItem>
+    <container-item>
       <div v-if="editing">
         <form @submit.prevent="editing = false">
           <q-input v-model="note.title" label="Title" filled />
@@ -44,7 +44,7 @@ const editing = ref(false);
 
       <div v-else>
         <div class="row items-center justify-between">
-          <h3 class="q-mb-md q-mt-md">{{ note.title }}</h3>
+          <h3 class="q-mb-md q-mt-md">{{ note?.title }}</h3>
           <div>
             <q-btn
               round
@@ -61,9 +61,9 @@ const editing = ref(false);
             />
           </div>
         </div>
-        <div>{{ note.description }}</div>
-        <div class="q-mt-md" v-html="note.content" />
+        <div>{{ note?.description }}</div>
+        <div class="q-mt-md" v-html="note?.content" />
       </div>
-    </ContainerItem>
+    </container-item>
   </q-page>
 </template>
